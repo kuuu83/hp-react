@@ -1,0 +1,141 @@
+.info-section {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.info-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 4rem auto 0;
+}
+
+.map-container {
+    width: 45%;
+    height: 400px; /* 固定高さを設定 */
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--primary-color);
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    /* フィルターを削除してカラーに */
+}
+
+.info-details {
+    width: 45%;
+    text-align: left;
+}
+
+.info-details dl {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 2rem 1rem;
+}
+
+.info-details dt {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 500;
+    color: var(--primary-color);
+    letter-spacing: 0.1em;
+}
+
+.info-details dd {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    position: relative;
+    padding-bottom: 0.5rem;
+    margin: 0;
+}
+
+.info-details dd::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: -110px;
+    width: calc(100% + 110px);
+    height: 1px;
+    background: linear-gradient(to right, rgba(175, 139, 80, 0.2), transparent);
+}
+
+.info-details dd:last-of-type::after {
+    display: none;
+}
+
+.info-header-details {
+    display: flex;
+    justify-content: center; /* flex-startからcenterに変更 */
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.info-header-details h3 {
+    font-size: 2rem;
+    margin: 0;
+    color: var(--text-color);
+    font-family: 'Shippori Mincho', serif;
+}
+
+.phone-button {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--primary-color);
+    padding: 10px 30px;
+    border: 1px solid var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    font-family: 'Shippori Mincho', serif;
+    transition: all 0.4s ease;
+}
+
+.phone-button:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(175, 139, 80, 0.3);
+}
+
+@media (max-width: 768px) {
+  .info-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .map-container,
+  .info-details {
+    width: 90%;
+  }
+
+  .map-container {
+      height: 300px;
+  }
+
+  .info-header-details {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .info-details dl {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+  }
+  
+  .info-details dt {
+      margin-top: 1rem;
+  }
+  
+  .info-details dd::after {
+      left: 0;
+      width: 100%;
+  }
+}

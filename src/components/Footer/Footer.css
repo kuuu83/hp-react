@@ -1,0 +1,152 @@
+.site-footer {
+  position: relative;
+  z-index: 100;
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 6rem 2rem 2rem 2rem;
+  border-top: 1px solid rgba(175, 139, 80, 0.2);
+}
+
+.footer-main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; /* 縦方向の中央揃えを追加 */
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 5rem;
+  text-align: center;
+}
+
+.footer-column {
+  min-width: 200px;
+}
+
+.footer-column h3,
+.footer-column h4 {
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  font-family: 'Shippori Mincho', serif;
+  letter-spacing: 0.1em;
+  display: inline-block;
+}
+
+.footer-column h3::after,
+.footer-column h4::after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 1px;
+  background-color: var(--primary-color);
+  margin: 1rem auto 0;
+}
+
+.footer-logo {
+  font-size: 2.2rem;
+  font-family: 'Shippori Mincho', serif;
+  color: #fff;
+  margin: 0; /* マージンをリセットして中央寄せを正確に */
+}
+
+.footer-logo::after {
+    display: none !important;
+}
+
+.footer-about p {
+  color: #aaa;
+  line-height: 2;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  max-width: 300px;
+  margin: 0.8rem auto 0; /* 1.5rem から 0.8rem へ縮小 */
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 1.2rem;
+}
+
+.footer-links a, .footer-links button {
+  color: #aaa;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1rem;
+}
+
+.footer-links a:hover, .footer-links button:hover {
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.footer-contact p {
+  color: #aaa;
+  line-height: 2;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.social-icons {
+  display: flex;
+  gap: 30px; /* アイコン同士の間隔を少し広げる */
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.social-icons a {
+  color: #aaa;
+  font-size: 1.8rem; /* 1.4rem から 1.8rem へ拡大 */
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--primary-color);
+  transform: translateY(-5px); /* ホバー時の動きも少し大きく */
+}
+
+.footer-bottom {
+  width: 100%;
+  text-align: center;
+  margin-top: 6rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(175, 139, 80, 0.1);
+}
+
+.footer-bottom p {
+  margin: 0 auto;
+  font-size: 0.85rem;
+  color: #666;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 768px) {
+  .site-footer {
+      padding-top: 4rem;
+  }
+  
+  .footer-main {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .footer-column {
+    min-width: 100%;
+    margin-bottom: 0;
+  }
+
+  .footer-links ul, .social-icons {
+    justify-content: center;
+  }
+}

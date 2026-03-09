@@ -1,0 +1,68 @@
+#logo-section {
+    padding: 6rem 2rem 4rem;
+    background-color: var(--background-color);
+    text-align: center;
+}
+
+.logo-area-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem; /* 左右の文字とロゴの距離を広げて視認性を高める */
+    margin-bottom: 4rem;
+}
+
+.vertical-text-accent {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.6em;
+    color: var(--primary-color);
+    opacity: 0.9;
+    white-space: nowrap; /* 改行を禁止し1行で表示 */
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+
+.logo-container {
+    max-width: 300px; /* 画像の大きさを元に戻す */
+}
+
+.logo-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.concept-text {
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.1rem;
+    line-height: 2.2;
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .logo-area-wrapper {
+        gap: 2rem; /* スマホでも左右の文字が重ならないように */
+    }
+    
+    .vertical-text-accent {
+        font-size: 1rem;
+        letter-spacing: 0.4em;
+    }
+    
+    .logo-container {
+        max-width: 180px; /* スマホでのロゴサイズも微調整 */
+    }
+    
+    .concept-text {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+}

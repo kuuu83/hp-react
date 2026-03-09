@@ -1,0 +1,123 @@
+.gallery-section {
+    background-color: var(--background-color);
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-scroll-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 3rem 0;
+    position: relative;
+}
+
+/* スクロールコンテナの影 */
+.gallery-scroll-wrapper::before,
+.gallery-scroll-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.gallery-scroll-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, var(--background-color), transparent);
+}
+
+.gallery-scroll-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, var(--background-color), transparent);
+}
+  
+.gallery-scroll-container {
+    display: flex;
+    animation: scroll 60s linear infinite; /* 少しゆっくりに */
+}
+  
+.gallery-scroll-wrapper:hover .gallery-scroll-container {
+    animation-play-state: paused;
+}
+  
+.gallery-item-wrapper {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(175, 139, 80, 0.2);
+    margin: 0 15px;
+    transition: all 0.5s ease;
+}
+
+.gallery-item {
+    width: 350px;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    filter: sepia(20%) contrast(1.1); /* わずかにレトロで高級な質感に */
+    transition: all 0.5s ease;
+}
+  
+.gallery-item-wrapper:hover {
+    border-color: var(--primary-color);
+    background-color: rgba(175, 139, 80, 0.05);
+    transform: translateY(-10px);
+}
+
+.gallery-item-wrapper:hover .gallery-item {
+    filter: sepia(0%) contrast(1.2);
+}
+  
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-1900px); /* (350+30+30)*5 = 2050px 近辺、要素数に合わせて調整 */
+    }
+}
+
+/* Styles for the single layout image */
+.single-layout-image-container {
+  padding: 4rem 20px 2rem;
+  text-align: center;
+}
+
+.single-layout-image {
+  max-width: 50%;
+  height: auto;
+  border: 1px solid var(--primary-color);
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .gallery-scroll-container {
+    animation: scroll 40s linear infinite; /* モバイルでも自動スクロールを有効に（少し速めに） */
+  }
+
+  .gallery-scroll-wrapper {
+    overflow-x: hidden; /* ネイティブスクロールを無効にしてアニメーションを優先 */
+    padding: 2rem 0;
+  }
+
+  .gallery-item-wrapper {
+    margin: 0 10px;
+    padding: 8px;
+  }
+
+  .gallery-item {
+    width: 280px;
+    height: 200px;
+  }
+
+  .single-layout-image {
+    max-width: 90%;
+    padding: 5px;
+  }
+}

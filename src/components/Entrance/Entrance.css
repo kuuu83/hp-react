@@ -1,0 +1,17 @@
+.entrance-section {
+    padding: 0; /* 全幅表示のためにパディングを削除 */
+}
+
+.entrance-image {
+    width: 100%;       /* 画面いっぱいに表示 */
+    height: 500px;     /* 高さを固定 */
+    object-fit: cover; /* アスペクト比を保ちつつ要素を覆う */
+    display: block;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* 影を追加して立体感を出す */
+}
+
+@media (max-width: 768px) {
+  .entrance-image {
+    height: 300px;
+  }
+}

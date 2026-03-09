@@ -1,0 +1,9 @@
+/* Global App Container */
+.App {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+main {
+  width: 100%;
+}

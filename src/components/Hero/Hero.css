@@ -1,0 +1,35 @@
+.hero-section {
+    /* background has been moved to the Logo area */
+    padding: 0;
+}
+
+.hero-text {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 5px;
+}
+
+.hero-text h2 {
+    font-family: 'Shippori Mincho', 'serif';
+    font-size: 3rem;
+    margin: 0 0 1rem 0;
+    color: #fff;
+}
+
+.hero-text p {
+    color: #fff;
+}
+
+.hero-text h2::after {
+    display: none; /* ここでは下線は不要 */
+}
+
+@media (max-width: 768px) {
+  .hero-text {
+    padding: 1.5rem;
+  }
+
+  .hero-text h2 {
+    font-size: 2rem;
+  }
+}

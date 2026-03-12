@@ -1,4 +1,5 @@
 import React, { useRef, useLayoutEffect, useState } from 'react';
+import { FiPhone } from 'react-icons/fi';
 import './Info.css';
 
 function Info() {
@@ -20,7 +21,9 @@ function Info() {
 
         <div className="info-header-details reveal delay-1">
           <h3>魚とら</h3>
-          <a href="tel:046-206-5531" className="phone-button">☎ 046-206-5531</a>
+          <a href="tel:046-206-5531" className="phone-button">
+            <FiPhone className="phone-icon" /> 046-206-5531
+          </a>
         </div>
 
         <div className="info-content reveal delay-2">

@@ -1,44 +1,40 @@
 .fixed-call-button {
   position: fixed;
-  bottom: 2rem;
-  right: 1.5rem;
+  bottom: 1.5rem;
+  right: 1.2rem;
   z-index: 999;
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  background-color: #8b0000; /* お店のアクセントカラーの赤 */
-  color: white;
-  padding: 0.8rem 1.2rem;
-  border-radius: 50px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  gap: 10px;
+  background-color: rgba(15, 15, 12, 0.85) !important; /* 透過した深い墨色 */
+  color: var(--primary-color) !important; /* 金茶色 */
+  padding: 10px 22px !important;
+  border-radius: 4px !important; /* 丸すぎず、品格のある角丸 */
+  border: 1px solid rgba(175, 139, 80, 0.5) !important; /* 繊細な金縁 */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6) !important;
   text-decoration: none;
-  transition: all 0.3s ease;
-  animation: pulse-phone 2s infinite; /* 注意を引くために少し動かす */
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  backdrop-filter: blur(5px); /* 背後のコンテンツをうっすら透かす */
+  animation: none !important; /* 激しい動きを止める */
 }
 
 .fixed-call-button:hover {
-  transform: scale(1.05);
-  background-color: #a00000;
-}
-
-.call-icon-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.2);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+  transform: translateY(-5px) !important;
+  background-color: rgba(175, 139, 80, 0.1) !important;
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 10px 25px rgba(175, 139, 80, 0.25) !important;
 }
 
 .call-icon {
-  font-size: 1.1rem;
+  font-size: 1.2rem !important;
+  color: var(--primary-color) !important;
 }
 
 .call-text {
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.08em !important;
+  font-family: 'Shippori Mincho', serif !important;
 }
 
 /* 脈動するアニメーション */

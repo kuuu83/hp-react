@@ -84,39 +84,58 @@
 }
 
 .phone-button {
-    display: inline-block;
-    background-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: rgba(175, 139, 80, 0.05);
     color: var(--primary-color);
-    padding: 10px 30px;
+    padding: 12px 35px;
     border: 1px solid var(--primary-color);
     text-decoration: none;
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-family: 'Shippori Mincho', serif;
-    transition: all 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.phone-icon {
+    font-size: 1.1rem;
+    transition: transform 0.4s ease;
 }
 
 .phone-button:hover {
     background-color: var(--primary-color);
     color: #fff;
-    box-shadow: 0 0 15px rgba(175, 139, 80, 0.3);
+    box-shadow: 0 10px 25px rgba(175, 139, 80, 0.25);
+    transform: translateY(-2px);
+}
+
+.phone-button:hover .phone-icon {
+    transform: scale(1.1) rotate(-10deg);
 }
 
 @media (max-width: 768px) {
   .info-content {
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1.2rem !important; /* 1.5rem -> 1.2rem へ微調整 */
   }
 
   .map-container,
   .info-details {
-    width: 90%;
+    width: 85% !important;
   }
 
   .map-container {
-      height: 300px;
+      height: 280px !important; /* 160px -> 120px へさらに大幅短縮 */
+      padding: 4px !important;
+      margin-bottom: 5px !important;
   }
+
 
   .info-header-details {
     flex-direction: column;

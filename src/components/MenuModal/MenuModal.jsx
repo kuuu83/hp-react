@@ -132,7 +132,7 @@ function MenuModal({ isOpen, onClose, data }) {
                           alt={`背景 ${pageIndex + 1}`}
                           className="menu-item-image-bg"
                         />
-                        <div style={{
+                        <div className="mobile-image-frame" style={{
                           position: 'absolute',
                           height: '63%',
                           width: '100%',

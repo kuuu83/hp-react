@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://uotora-ebina.com/sitemap.xml

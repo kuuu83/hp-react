@@ -1,28 +1,72 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- SEO対策 -->
     <title>魚とら | 海老名駅徒歩5分 旬の鮮魚と和食を堪能</title>
     <meta name="description" content="海老名市の和食店「魚とら」。魚一筋40年の大将が造る刺身、にぎり、うなぎ、旬の魚料理。落ち着いた和モダンな空間で、毎朝仕入れる新鮮な海の幸をお楽しみください。ご予約はお電話にて承ります。" />
     <meta name="keywords" content="魚とら,海老名,和食,居酒屋,刺身,にぎり,うなぎ,海鮮,ディナー" />
-    
+    <link rel="canonical" href="https://uotora-ebina.com" />
+
     <!-- OGP (SNS共有設定) -->
     <meta property="og:title" content="魚とら | 海老名駅徒歩5分 旬の鮮魚と和食を堪能" />
     <meta property="og:description" content="魚一筋40年の大将が造る、こだわりの刺身とうなぎ。海老名の隠れ家「魚とら」の公式サイトです。" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://uotora-ebina.com" /> <!-- 公開後に変更してください -->
-    <meta property="og:image" content="/src/assets/sasimi.JPG" />
+    <meta property="og:url" content="https://uotora-ebina.com" />
+    <meta property="og:image" content="https://uotora-ebina.com/assets/sasimi.JPG" />
     <meta property="og:site_name" content="魚とら" />
-    
+    <meta property="og:locale" content="ja_JP" />
+
     <!-- Twitter (X) カード -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="魚とら | 海老名駅徒歩5分 旬の鮮魚と和食を堪能" />
     <meta name="twitter:description" content="魚一筋40年の大将が造る、こだわりの刺身とうなぎ。海老名の隠れ家「魚とら」の公式サイトです。" />
-    <meta name="twitter:image" content="/src/assets/sasimi.JPG" />
+    <meta name="twitter:image" content="https://uotora-ebina.com/assets/sasimi.JPG" />
+
+    <!-- 構造化データ (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "魚とら",
+      "image": "https://uotora-ebina.com/assets/sasimi.JPG",
+      "@id": "https://uotora-ebina.com",
+      "url": "https://uotora-ebina.com",
+      "telephone": "046-206-5531",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "中央1-14-26 オアシス2",
+        "addressLocality": "海老名市",
+        "addressRegion": "神奈川県",
+        "postalCode": "243-0432",
+        "addressCountry": "JP"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 35.45324089246654,
+        "longitude": 139.39043552462454
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "17:00",
+          "closes": "23:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "17:00",
+          "closes": "22:00"
+        }
+      ],
+      "servesCuisine": "Japanese",
+      "priceRange": "￥3000-￥6000"
+    }
+    </script>
 
     <!-- 電話番号の自動リンクを制御（意図しないリンク防止） -->
     <meta name="format-detection" content="telephone=no" />

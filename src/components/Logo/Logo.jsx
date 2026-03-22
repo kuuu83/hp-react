@@ -1,6 +1,6 @@
 import React from 'react';
 import './Logo.css';
-import logoImage from '../../assets/印刷用ロゴ2.png';
+import logoImage from '../../assets/印刷用ロゴ2.webp';
 
 function Logo() {
   return (
@@ -8,7 +8,7 @@ function Logo() {
       <div className="logo-area-wrapper reveal">
         <div className="vertical-text-accent left">海老名の隠れ家</div>
         <div className="logo-container">
-          <img src={logoImage} alt="店舗ロゴ" className="logo-image" />
+          <img src={logoImage} alt="魚とら 店舗ロゴ - 魚一筋40年の大将が造る和食店（海老名）" className="logo-image" loading="lazy" />
         </div>
         <div className="vertical-text-accent right">旬の魚を味わう</div>
       </div>

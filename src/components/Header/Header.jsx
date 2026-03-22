@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
-import headerLogo from '../../assets/ふぐ透過.png';
+import headerLogo from '../../assets/ふぐ透過.webp';
 
 const MOBILE_BREAKPOINT = 768;
 
@@ -47,7 +47,7 @@ function Header({ onOpenContact }) {
     <header className={`site-header ${shouldShowCompactHeader ? 'scrolled' : ''}`}>
       {!shouldShowCompactHeader && (
         <>
-          <img src={headerLogo} alt="ロゴ" className="header-logo-image" />
+          <img src={headerLogo} alt="魚とら ロゴ" className="header-logo-image" />
           <nav className="full-nav">
             <ul>
               <li><a href="#menu">お品書き</a></li>
@@ -63,7 +63,7 @@ function Header({ onOpenContact }) {
       {shouldShowCompactHeader && (
         <div className="scrolled-nav-container">
           <div className="scrolled-logo-menu" onClick={toggleNav}>
-            <img src={headerLogo} alt="ロゴ" className="header-logo-image" />
+            <img src={headerLogo} alt="魚とら ロゴ" className="header-logo-image" />
             <span className="menu-text">{isNavVisible ? 'close' : 'menu'}</span>
           </div>
           <nav className={`horizontal-expand-nav ${isNavVisible ? 'visible' : ''}`} onClick={(e) => e.stopPropagation()}>

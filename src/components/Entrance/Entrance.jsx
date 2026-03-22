@@ -1,11 +1,11 @@
 import React from 'react';
 import './Entrance.css';
-import entranceImage from '../../assets/入口.jpeg';
+import entranceImage from '../../assets/入口.webp';
 
 function Entrance() {
   return (
     <section id="entrance" className="entrance-section">
-      <img src={entranceImage} alt="店舗入口" className="entrance-image reveal" />
+      <img src={entranceImage} alt="魚とら 店舗入口：海老名駅から徒歩5分の落ち着いた外観" className="entrance-image reveal" loading="lazy" />
     </section>
   );
 }

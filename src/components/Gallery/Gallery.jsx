@@ -1,27 +1,26 @@
 import React, { useRef } from 'react';
 import './Gallery.css';
-import sasimiImage from '../../assets/sasimi.JPG';
-import unagiImage from '../../assets/unagi.png';
-import fuguImage from '../../assets/fugu.JPG';
-import crabImage from '../../assets/crab.JPG';
-import anagoImage from '../../assets/穴子.png';
-import layoutImage from '../../assets/HPレイアウト.png';
+import sasimiImage from '../../assets/sasimi.webp';
+import unagiImage from '../../assets/unagi.webp';
+import fuguImage from '../../assets/fugu.webp';
+import crabImage from '../../assets/crab.webp';
+import anagoImage from '../../assets/穴子.webp';
+import layoutImage from '../../assets/HPレイアウト.webp';
 
 const IMAGE_WIDTH = 350; // CSSと合わせる
 const NUM_IMAGES = 5;
 
 // 表示する画像のリスト
-const imageSources = [
-  sasimiImage,
-  unagiImage,
-  fuguImage,
-  crabImage,
-  anagoImage,
+const imageItems = [
+  { src: sasimiImage, alt: '旬の刺身盛合せ' },
+  { src: unagiImage, alt: 'こだわりの上うな重' },
+  { src: fuguImage, alt: '揚げたてのふぐ唐揚げ' },
+  { src: crabImage, alt: '新鮮なカニ料理' },
+  { src: anagoImage, alt: '自家製活穴子煮' },
 ];
 
 function Gallery() {
-  const originalImages = imageSources;
-  const images = [...originalImages, ...originalImages]; // ループ用に2セット
+  const images = [...imageItems, ...imageItems]; // ループ用に2セット
 
   const galleryRef = useRef(null);
 
@@ -36,19 +35,20 @@ function Gallery() {
         ref={galleryRef}
       >
         <div className="gallery-scroll-container">
-          {images.map((src, index) => (
+          {images.map((item, index) => (
             <div key={index} className="gallery-item-wrapper">
               <img
-                src={src}
-                alt={`料理の写真 ${index + 1}`}
+                src={item.src}
+                alt={item.alt}
                 className="gallery-item"
+                loading="lazy"
               />
             </div>
           ))}
         </div>
       </div>
       <div className="single-layout-image-container">
-        <img src={layoutImage} alt="店内のレイアウト写真" className="single-layout-image" />
+        <img src={layoutImage} alt="落ち着いた和モダンの店内レイアウト" className="single-layout-image" loading="lazy" />
       </div>
     </section>
   );

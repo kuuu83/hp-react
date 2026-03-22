@@ -28,9 +28,9 @@ function Footer({ onOpenContact }) {
             営業時間: 17:00～23:00 (日曜日のみ17:00～22:00)
           </p>
           <div className="social-icons">
-            <a href="https://www.instagram.com/uotora.ebina/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-            <a href="https://x.com/roku55808309" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
-            <a href="https://www.facebook.com/uotora.ebina/" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
+            <a href="https://www.instagram.com/uotora.ebina/" target="_blank" rel="noopener noreferrer me"><FaInstagram /></a>
+            <a href="https://x.com/roku55808309" target="_blank" rel="noopener noreferrer me"><FaTwitter /></a>
+            <a href="https://www.facebook.com/uotora.ebina/" target="_blank" rel="noopener noreferrer me"><FaFacebookF /></a>
           </div>
         </div>
       </div>

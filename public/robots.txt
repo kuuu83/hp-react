@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hp-react-pied.vercel.app/sitemap.xml
+Sitemap: https://uotora-ebina.com/sitemap.xml

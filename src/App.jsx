@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Analytics } from "@vercel/analytics/react";
+
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import Logo from './components/Logo/Logo';
@@ -63,7 +63,7 @@ function App() {
         onClose={() => setSelectedMenu(null)} 
         data={selectedMenu} 
       />
-      <Analytics />
+
     </div>
   );
 }

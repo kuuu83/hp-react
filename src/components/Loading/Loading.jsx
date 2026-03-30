@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './Loading.css';
 import fuguImage from '../../assets/ふぐ透過.webp';
 
@@ -14,49 +14,57 @@ const imagesToPreload = [
 ];
 
 function Loading({ onLoaded }) {
-  const [progress, setProgress] = useState(0);
+  const [displayProgress, setDisplayProgress] = useState(0); // 実際に画面に表示する数字
+  const [actualProgress, setActualProgress] = useState(0);   // 実際の読み込み状況
   const [isFadingOut, setIsFadingOut] = useState(false);
+
+  const finishLoading = useCallback(() => {
+    setIsFadingOut(true);
+    setTimeout(() => {
+      onLoaded();
+    }, 800);
+  }, [onLoaded]);
 
   useEffect(() => {
     let loadedCount = 0;
     const totalImages = imagesToPreload.length;
 
-    if (totalImages === 0) {
-      setProgress(100);
-      setTimeout(() => finishLoading(), 500);
-      return;
-    }
-
-    const finishLoading = () => {
-      setIsFadingOut(true);
-      // フェードアウトアニメーションの後に親コンポーネントに通知
-      setTimeout(() => {
-        onLoaded();
-      }, 800);
-    };
-
+    // 実際の読み込み処理
     imagesToPreload.forEach((src) => {
       const img = new Image();
       img.src = src;
       img.onload = () => {
         loadedCount++;
-        const newProgress = Math.floor((loadedCount / totalImages) * 100);
-        setProgress(newProgress);
-        
-        if (loadedCount === totalImages) {
-          // 少しだけ完了余韻を残す
-          setTimeout(() => finishLoading(), 600);
-        }
+        setActualProgress(Math.floor((loadedCount / totalImages) * 100));
       };
       img.onerror = () => {
-        // エラーが起きても進める
         loadedCount++;
-        if (loadedCount === totalImages) {
-          setTimeout(() => finishLoading(), 600);
-        }
+        setActualProgress(Math.floor((loadedCount / totalImages) * 100));
       };
     });
-  }, [onLoaded]);
+  }, []);
+
+  // 表示用の数字を滑らかにカウントアップさせる
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDisplayProgress((prev) => {
+        // 100%まで約0.8秒でカウントアップするリズム
+        if (prev < actualProgress || (actualProgress === 100 && prev < 100)) {
+          return prev + 1;
+        }
+        
+        if (prev >= 100) {
+          clearInterval(timer);
+          // 100%になったら0.2秒だけ余韻を置いてから終了
+          setTimeout(() => finishLoading(), 200);
+          return 100;
+        }
+        return prev;
+      });
+    }, 8); // 8ms × 100歩 = 800ms (0.8秒)
+
+    return () => clearInterval(timer);
+  }, [actualProgress, finishLoading]);
 
   return (
     <div className={`loading-screen ${isFadingOut ? 'fade-out' : ''}`}>
@@ -67,8 +75,8 @@ function Loading({ onLoaded }) {
             alt="読み込み中" 
             className="loading-fugu" 
             style={{ 
-              filter: `grayscale(${100 - progress}%) brightness(${30 + (progress * 0.7)}%) saturate(${progress * 1.5}%)`,
-              transform: `scale(${0.7 + (progress * 0.003)})`
+              filter: `grayscale(${100 - displayProgress}%) brightness(${30 + (displayProgress * 0.7)}%) saturate(${displayProgress * 1.5}%)`,
+              transform: `scale(${0.7 + (displayProgress * 0.003)})`
             }}
           />
         </div>
@@ -85,7 +93,7 @@ function Loading({ onLoaded }) {
                 <path className="ukiyo-wave wave-mid" d="M-160,16 Q-130,2 -100,16 T-40,16 T20,16 T80,16 T140,16 T200,16 T260,16" fill="rgba(175, 139, 80, 0.25)" />
                 <path className="ukiyo-wave wave-front" d="M-160,18 Q-120,0 -80,18 T0,18 T80,18 T160,18 T240,18 T320,18" fill="rgba(175, 139, 80, 0.45)" />
               </g>
-
+              
               {/* 最前面の進捗ライン */}
               <path 
                 className="wave-progress-line" 
@@ -93,20 +101,20 @@ function Loading({ onLoaded }) {
                 stroke="#af8b50" 
                 strokeWidth="1.5"
                 strokeDasharray="180"
-                strokeDashoffset={180 - (progress * 1.8)}
-                style={{ transition: 'stroke-dashoffset 0.4s ease-out' }}
+                strokeDashoffset={180 - (displayProgress * 1.8)}
+                style={{ transition: 'stroke-dashoffset 0.2s linear' }}
               />
 
               <defs>
                 <clipPath id="progress-clip">
-                  <rect x="0" y="0" width={progress * 1.6} height="24" />
+                  <rect x="0" y="0" width={displayProgress * 1.6} height="24" />
                 </clipPath>
               </defs>
             </svg>
           </div>
 
           <div className="progress-text-wrapper">
-            <span className="progress-number">{progress}</span>
+            <span className="progress-number">{displayProgress}</span>
             <span className="progress-unit">%</span>
           </div>
         </div>

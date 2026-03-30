@@ -21,7 +21,7 @@ function Info() {
 
         <div className="info-header-details reveal delay-1">
           <h3>魚とら</h3>
-          <a href="tel:046-206-5531" className="phone-button">
+          <a href="tel:046-206-5531" className="phone-button" aria-label="魚とらに電話をかける（046-206-5531）">
             <FiPhone className="phone-icon" /> 046-206-5531
           </a>
         </div>

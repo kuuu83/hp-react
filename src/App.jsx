@@ -12,13 +12,24 @@ import Entrance from './components/Entrance/Entrance';
 import ContactModal from './components/ContactModal/ContactModal';
 import MenuModal from './components/MenuModal/MenuModal';
 import FixedCallButton from './components/FixedCallButton/FixedCallButton';
+import Loading from './components/Loading/Loading';
 import './App.css';
 
 function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [selectedMenu, setSelectedMenu] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Reactが起動したら、index.htmlに直書きした静的ローダーを消去
+    const initialLoader = document.getElementById('initial-loader');
+    if (initialLoader) {
+      initialLoader.style.opacity = '0';
+      setTimeout(() => initialLoader.remove(), 500);
+    }
+
+    if (isLoading) return; // ロード中は何もしない
+
     const observerOptions = {
       root: null,
       rootMargin: '0px',
@@ -39,30 +50,34 @@ function App() {
     targets.forEach(target => observer.observe(target));
 
     return () => observer.disconnect();
-  }, []);
+  }, [isLoading]);
 
   return (
     <div className="App">
-      <Header onOpenContact={() => setIsContactOpen(true)} />
-      <main>
-        <Hero />
-        <Logo />
-        <Menu onOpenMenu={setSelectedMenu} />
-        <Gallery />
-        <SocialFeed />
-        <Info />
-        <Entrance />
-      </main>
-      <Footer onOpenContact={() => setIsContactOpen(true)} />
+      {isLoading && <Loading onLoaded={() => setIsLoading(false)} />}
       
-      <FixedCallButton />
-      
-      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
-      <MenuModal 
-        isOpen={!!selectedMenu} 
-        onClose={() => setSelectedMenu(null)} 
-        data={selectedMenu} 
-      />
+      <div className={`main-content ${!isLoading ? 'visible' : ''}`}>
+        <Header onOpenContact={() => setIsContactOpen(true)} />
+        <main>
+          <Hero />
+          <Logo />
+          <Menu onOpenMenu={setSelectedMenu} />
+          <Gallery />
+          <SocialFeed />
+          <Info />
+          <Entrance />
+        </main>
+        <Footer onOpenContact={() => setIsContactOpen(true)} />
+        
+        <FixedCallButton />
+        
+        <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
+        <MenuModal 
+          isOpen={!!selectedMenu} 
+          onClose={() => setSelectedMenu(null)} 
+          data={selectedMenu} 
+        />
+      </div>
 
     </div>
   );

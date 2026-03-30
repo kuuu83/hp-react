@@ -7,3 +7,15 @@
 main {
   width: 100%;
 }
+
+/* 本編のフェードイン */
+.main-content {
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+  visibility: hidden;
+}
+
+.main-content.visible {
+  opacity: 1;
+  visibility: visible;
+}

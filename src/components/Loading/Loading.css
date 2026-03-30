@@ -1,0 +1,114 @@
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0a0a0a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+}
+
+.loading-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fugu-container {
+  width: 180px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -1.8rem; /* さらにグッと波にめり込ませる */
+  position: relative;
+}
+
+.loading-fugu {
+  width: 130px;
+  height: auto;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation: fuguFloat 4s infinite ease-in-out;
+}
+
+@keyframes fuguFloat {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-8px) rotate(3deg); }
+}
+
+.japanese-progress-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem; /* ほぼ隙間なし */
+}
+
+.ukiyo-wave-container {
+  width: 140px;
+  position: relative;
+  overflow: visible;
+}
+
+.ukiyo-wave-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible; /* しぶきが外に飛び出せるように */
+}
+
+/* 浮世絵波の共通設定 */
+.ukiyo-wave {
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+/* ... (省略) ... */
+
+/* しぶきの飛ぶ方向をバラけさせる（不要になったため削除も可ですが、構造維持のためここから下を整理します） */
+
+.wave-progress-line {
+  stroke-linecap: round;
+  box-shadow: 0 0 15px rgba(175, 139, 80, 0.9);
+}
+
+.progress-text-wrapper {
+  font-family: 'Shippori Mincho', serif;
+  color: #af8b50;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.progress-number {
+  font-size: 1.4rem; /* 小さく控えめに */
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.progress-unit {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+/* フェードアウト */
+.loading-screen.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@media (max-width: 768px) {
+  .loading-fugu {
+    width: 120px;
+  }
+  .fugu-container {
+    width: 160px;
+    height: 150px;
+  }
+  .progress-number {
+    font-size: 1.2rem;
+  }
+}

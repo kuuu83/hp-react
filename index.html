@@ -37,7 +37,31 @@
       "url": "https://uotora-ebina.com",
       "telephone": "046-206-5531",
       "acceptsReservations": "true",
-      "hasMenu": "https://uotora-ebina.com/#menu",
+      "hasMenu": {
+        "@type": "Menu",
+        "name": "魚とら お品書き",
+        "mainEntityOfPage": "https://uotora-ebina.com/#menu",
+        "hasMenuItem": [
+          {
+            "@type": "MenuItem",
+            "name": "刺身盛合せ",
+            "description": "海老名で40年、魚一筋の大将が厳選する旬の刺身。その日一番の鮮魚を盛り合わせます。",
+            "offers": { "@type": "Offer", "price": "1650", "priceCurrency": "JPY" }
+          },
+          {
+            "@type": "MenuItem",
+            "name": "上うな重",
+            "description": "厳選された鰻を職人が丁寧に焼き上げた、魚とら自慢のうなぎ料理。",
+            "offers": { "@type": "Offer", "price": "5500", "priceCurrency": "JPY" }
+          },
+          {
+            "@type": "MenuItem",
+            "name": "自家製活穴子煮",
+            "description": "新鮮な活穴子をふっくらと煮上げた、リピーターの多い人気メニュー。",
+            "offers": { "@type": "Offer", "price": "1650", "priceCurrency": "JPY" }
+          }
+        ]
+      },
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "中央1-14-26 オアシス2",

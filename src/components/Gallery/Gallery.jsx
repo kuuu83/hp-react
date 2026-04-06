@@ -12,11 +12,11 @@ const NUM_IMAGES = 5;
 
 // 表示する画像のリスト
 const imageItems = [
-  { src: sasimiImage, alt: '旬の刺身盛合せ' },
-  { src: unagiImage, alt: 'こだわりの上うな重' },
-  { src: fuguImage, alt: '揚げたてのふぐ唐揚げ' },
-  { src: crabImage, alt: '新鮮なカニ料理' },
-  { src: anagoImage, alt: '自家製活穴子煮' },
+  { src: sasimiImage, alt: '海老名 魚とら 旬の刺身盛合せ' },
+  { src: unagiImage, alt: '海老名 魚とら こだわりの上うな重' },
+  { src: fuguImage, alt: '海老名 魚とら 揚げたてのふぐ唐揚げ' },
+  { src: crabImage, alt: '海老名 魚とら 新鮮なカニ料理' },
+  { src: anagoImage, alt: '海老名 魚とら 自家製活穴子煮' },
 ];
 
 function Gallery() {

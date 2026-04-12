@@ -201,7 +201,7 @@ function Menu({ onOpenMenu }) {
                 </div>
             </div>
 
-            <p className="menu-seasonal-note reveal delay-3">他にも旬の日替わり商品、季節のお酒がございます。</p>
+            <p className="menu-seasonal-note reveal delay-3">ほかにも旬の日替わりのお食事、季節のお酒がございます。</p>
         </section>
     );
 }

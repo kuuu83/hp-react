@@ -30,7 +30,8 @@
 .full-nav {
     flex-grow: 1;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* 中央揃えに戻し */
+    margin-right: 10%; /* 右側にマージンを持たせることで、少し左に寄せる */
 }
 
 .full-nav ul {

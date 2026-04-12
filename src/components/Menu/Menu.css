@@ -50,9 +50,10 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.6rem;
     font-family: 'Shippori Mincho', serif;
     position: relative;
+    letter-spacing: 0.1em;
 }
 
 .menu-item-name {
@@ -64,8 +65,8 @@
 .menu-item-name::after {
     content: '';
     flex-grow: 1;
-    border-bottom: 1px dotted rgba(175, 139, 80, 0.3);
-    margin: 0 10px;
+    border-bottom: 1px dotted rgba(175, 139, 80, 0.2);
+    margin: 0 12px;
 }
 
 .menu-item-price {

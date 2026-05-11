@@ -6,10 +6,15 @@ function Logo() {
   return (
     <section id="logo-section">
       <div className="logo-area-wrapper reveal">
+        {/* 背景の月明かり演出のみ、控えめに残す */}
+        <div className="moon-glow-bg"></div>
+        
         <div className="vertical-text-accent left">海老名の隠れ家</div>
-        <div className="logo-container">
+        
+        <div className="logo-container moon-effect">
           <img src={logoImage} alt="魚とら 店舗ロゴ - 魚一筋40年の大将が造る和食店（海老名）" className="logo-image" loading="lazy" />
         </div>
+
         <div className="vertical-text-accent right">旬の魚を味わう</div>
       </div>
       <div className="concept-text reveal delay-1">

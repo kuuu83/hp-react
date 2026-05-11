@@ -54,6 +54,7 @@ function App() {
 
   return (
     <div className="App">
+      <div className="wasi-overlay"></div>
       {isLoading && <Loading onLoaded={() => setIsLoading(false)} />}
       
       <div className={`main-content ${!isLoading ? 'visible' : ''}`}>

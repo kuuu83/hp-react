@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Yuji+Syuku&display=swap');
 
 html {
     scroll-behavior: smooth;
@@ -21,20 +21,62 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--background-color);
-    /* 【和紙の質感】繊維の重なりやムラを強めに表現 */
-    background-image: 
-        /* 1. 微細なノイズ */
-        radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.03) 1px, transparent 0),
-        /* 2. 和紙の繊維感（斜めのラインを重ねる） */
-        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.01) 0px, rgba(255, 255, 255, 0.01) 1px, transparent 1px, transparent 20px),
-        repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.01) 0px, rgba(255, 255, 255, 0.01) 1px, transparent 1px, transparent 25px),
-        /* 3. 大きな和紙特有のムラ（雲竜風） */
-        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 80%);
-    background-size: 30px 30px, 40px 40px, 50px 50px, 100% 100%;
+    /* 【和紙の質感】ベースとなる質感を一旦削除して、オーバーレイの和紙のみにする */
     color: var(--text-color);
     line-height: 2;
     letter-spacing: 0.05em;
+    position: relative;
 }
+/* .Appを基準にするために相対位置に設定 */
+.App {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative; /* 子要素の absolute の基準にする */
+}
+
+/* 【究極】サイト全体を包む和紙の膜（ジェーさん改修版） */
+.wasi-overlay {
+    position: fixed;   /* 画面に固定して、一枚の大きな布のように見せる */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 99999;
+    mix-blend-mode: screen;
+    opacity: 0.20;      /* 質感をしっかり出すために少し強めに設定 */
+    filter: grayscale(1) contrast(180%) brightness(1.2);
+    
+    /* 異なるサイズの画像を重ねて、つなぎ目を「干渉」させて消す */
+    background-image: 
+        /* 1. 画面全体のビネット（周辺減光） ※ループさせない */
+        radial-gradient(circle at 50% 50%, transparent 20%, rgba(0, 0, 0, 0.4) 100%),
+        /* 2. メインの和紙（標準サイズ） */
+        url('./assets/washi.png'),
+        /* 3. サブの和紙（少し大きく、位置をズラして重ねる） */
+        url('./assets/washi.png');
+        
+    background-size: 
+        100% 100%,     /* ビネット */
+        1200px auto,   /* メイン（1200px周期） */
+        1733px auto;   /* サブ（素数に近い1733px周期でズレを最大化） */
+        
+    background-position: 
+        0 0,           /* ビネット */
+        0 0,           /* メイン */
+        33% 47%;       /* サブは少しずらす */
+        
+    background-repeat: 
+        no-repeat,     /* ビネットは1枚だけ */
+        repeat,        /* メインはループ */
+        repeat;        /* サブもループ */
+}
+
+/* 古い疑似要素は削除 */
+body::after {
+    display: none;
+}
+
 
 /* 【しっとりフェードイン】スクロールで現れる共通設定 */
 .reveal {

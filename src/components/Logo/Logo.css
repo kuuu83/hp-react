@@ -5,30 +5,51 @@
 }
 
 .logo-area-wrapper {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 4rem; /* 左右の文字とロゴの距離を広げて視認性を高める */
+    gap: 4rem;
     margin-bottom: 4rem;
+}
+
+/* 背景の月明かり（満月の輝きを強調） */
+.moon-glow-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(175, 139, 80, 0.25) 0%, rgba(175, 139, 80, 0) 75%);
+    z-index: 0;
+    pointer-events: none;
 }
 
 .vertical-text-accent {
     writing-mode: vertical-rl;
     text-orientation: mixed;
-    font-family: 'Shippori Mincho', serif;
-    font-size: 1.2rem;
-    font-weight: 500;
+    font-family: 'Yuji Syuku', serif; /* 達筆な和風フォントに変更 */
+    font-size: 1.4rem; /* 存在感を出すために少し大きく */
+    font-weight: 400;
     letter-spacing: 0.6em;
-    color: var(--primary-color);
-    opacity: 0.9;
-    white-space: nowrap; /* 改行を禁止し1行で表示 */
+    color: #8a6d3b; /* より落ち着いた、渋みのある金に変更 */
+    opacity: 0.95;
+    white-space: nowrap;
     height: auto;
     display: flex;
     align-items: center;
+    z-index: 1;
 }
 
 .logo-container {
-    max-width: 300px; /* 画像の大きさを元に戻す */
+    max-width: 300px;
+    z-index: 1;
+}
+
+.moon-effect {
+    /* ロゴ自体の発光感をアップ */
+    filter: drop-shadow(0 0 35px rgba(175, 139, 80, 0.5));
 }
 
 .logo-image {
@@ -40,16 +61,16 @@
 .concept-text {
     max-width: 600px;
     margin: 0 auto;
-    font-family: 'Shippori Mincho', serif;
-    font-size: 1.1rem;
-    line-height: 2.2;
-    color: var(--text-color);
-    opacity: 0.9;
+    font-family: 'Yuji Syuku', serif; /* 達筆な和風フォントに変更 */
+    font-size: 1.3rem; /* 少し大きく */
+    line-height: 2.4;
+    color: #a0a0a0; /* 白すぎない、落ち着いたグレーに変更 */
+    opacity: 0.95;
 }
 
 @media (max-width: 768px) {
     .logo-area-wrapper {
-        gap: 2rem; /* スマホでも左右の文字が重ならないように */
+        gap: 2rem;
     }
     
     .vertical-text-accent {
@@ -58,7 +79,7 @@
     }
     
     .logo-container {
-        max-width: 180px; /* スマホでのロゴサイズも微調整 */
+        max-width: 180px;
     }
     
     .concept-text {

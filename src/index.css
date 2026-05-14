@@ -163,14 +163,15 @@ section h2::after {
     section h2 {
         font-size: 2rem;
     }
-    /* スマホでの描画負荷（GPU負荷）を軽減 */
+    /* スマホでの描画負荷（GPU負荷）を軽減 ＋ つなぎ目解消 */
     .wasi-overlay {
         background-image: 
             radial-gradient(circle at 50% 50%, transparent 20%, rgba(0, 0, 0, 0.4) 100%),
             url('./assets/washi.webp');
         background-size: 
             100% 100%,
-            800px auto;
+            cover; /* 1枚の画像で画面全体を覆う */
+        background-repeat: no-repeat;
         opacity: 0.15;
     }
 }

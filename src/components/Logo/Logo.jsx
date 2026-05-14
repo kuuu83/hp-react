@@ -12,7 +12,7 @@ function Logo() {
         <div className="vertical-text-accent left">海老名の隠れ家</div>
         
         <div className="logo-container moon-effect">
-          <img src={logoImage} alt="魚とら 店舗ロゴ - 魚一筋40年の大将が造る和食店（海老名）" className="logo-image" loading="lazy" />
+          <img src={logoImage} alt="魚とら 店舗ロゴ - 魚一筋40年の大将が造る和食店（海老名）" className="logo-image" />
         </div>
 
         <div className="vertical-text-accent right">旬の魚を味わう</div>

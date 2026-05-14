@@ -52,9 +52,9 @@ body {
         /* 1. 画面全体のビネット（周辺減光） ※ループさせない */
         radial-gradient(circle at 50% 50%, transparent 20%, rgba(0, 0, 0, 0.4) 100%),
         /* 2. メインの和紙（標準サイズ） */
-        url('./assets/washi.png'),
+        url('./assets/washi.webp'),
         /* 3. サブの和紙（少し大きく、位置をズラして重ねる） */
-        url('./assets/washi.png');
+        url('./assets/washi.webp');
         
     background-size: 
         100% 100%,     /* ビネット */
@@ -162,5 +162,15 @@ section h2::after {
     }
     section h2 {
         font-size: 2rem;
+    }
+    /* スマホでの描画負荷（GPU負荷）を軽減 */
+    .wasi-overlay {
+        background-image: 
+            radial-gradient(circle at 50% 50%, transparent 20%, rgba(0, 0, 0, 0.4) 100%),
+            url('./assets/washi.webp');
+        background-size: 
+            100% 100%,
+            800px auto;
+        opacity: 0.15;
     }
 }

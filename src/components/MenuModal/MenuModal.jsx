@@ -4,13 +4,13 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation'; // NavigationのCSSをインポート
 import './MenuModal.css';
-import sasimiImage from '../../assets/sasimi.JPG'; // sasimi.JPGをインポート
-import unagiImage from '../../assets/unagi.png'; // unagi.pngをインポート
-import anagoImage from '../../assets/穴子.png'; // 穴子.pngをインポート
-import sazaeImage from '../../assets/sazae.JPG'; // sazae.JPGをインポート (Re-added)
-import soysaladImage from '../../assets/soysalad.png'; // soysalad.pngをインポート (Re-added)
-import crabImage from '../../assets/crab.JPG'; // お飲み物用
-import fuguImage from '../../assets/fugu.JPG'; // お飲み物用
+import sasimiImage from '../../assets/sasimi.webp'; 
+import unagiImage from '../../assets/unagi.webp'; 
+import anagoImage from '../../assets/穴子.webp'; 
+import sazaeImage from '../../assets/sazae.webp'; 
+import soysaladImage from '../../assets/soysalad.webp'; 
+import crabImage from '../../assets/crab.webp'; 
+import fuguImage from '../../assets/fugu.webp'; 
 
 const ITEMS_PER_PAGE = 6; // 1ページあたりのアイテム数
 

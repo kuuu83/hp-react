@@ -2,6 +2,13 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 0;
+}
+
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 0;
+    }
 }
 
 /* 基本設定 */
@@ -123,10 +130,18 @@ a {
 }
 
 section {
-    padding: 6rem 2rem;
+    padding: 0.5rem 2rem 6rem;
+    margin-top: 7rem;
     max-width: 1400px;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
+}
+
+/* 最初のセクション（ロゴ部分）はヘッダーとの間隔を適切に保つ */
+#logo-section {
+    margin-top: 0;
+    padding-top: 7rem;
 }
 
 section h2 {
@@ -158,7 +173,12 @@ section h2::after {
 
 @media (max-width: 768px) {
     section {
-        padding: 4rem 1.5rem;
+        padding: 0.5rem 1.5rem 4rem;
+        margin-top: 4.5rem;
+    }
+    #logo-section {
+        margin-top: 0;
+        padding-top: 5rem;
     }
     section h2 {
         font-size: 2rem;

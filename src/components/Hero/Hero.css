@@ -1,6 +1,7 @@
 .hero-section {
     /* background has been moved to the Logo area */
     padding: 0;
+    margin-top: 0;
 }
 
 .hero-text {

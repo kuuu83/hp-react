@@ -23,7 +23,7 @@ function Footer({ onOpenContact }) {
         </div>
         <div className="footer-column footer-contact">
           <p>
-            住所: 神奈川県海老名市中央1-14-26 オアシス2<br />
+            住所: 神奈川県海老名市中央1-14-26 <span style={{ display: 'inline-block' }}>オアシス2</span><br />
             電話: 046-206-5531<br />
             営業時間: 17:00～23:00 (日曜日のみ17:00～22:00)
           </p>

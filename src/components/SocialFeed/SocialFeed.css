@@ -39,12 +39,34 @@
 }
 
 .social-feed-container {
-  max-width: 420px;
+  max-width: 440px; /* 余白を増やした分、最大幅も少し広げてバランス調整 */
   margin: 0 auto;
-  background-color: #ffffff; /* 外側の白いフレーム */
-  border: 5px solid #000000; /* 内側の黒い枠線をさらに太く */
-  padding: 25px; /* 内側の余白を増やして白い部分を太く */
-  box-shadow: 0 0 0 6px #ffffff; /* 外側の白いフレームを太く */
+  background-color: #fdfaf2; 
+  position: relative; 
+  overflow: hidden; 
+  border-radius: 12px; /* 余白に合わせて角丸も少し大きく */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5); /* 影にさらに深みを出す */
+  padding: 40px 25px; /* 上下40px、左右25pxで縦方向にゆとりを持たせる */
+}
+
+/* 和紙のオーバーレイ */
+.social-feed-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../../assets/washi.webp'); /* 最適化済みのwashi.webpを使用 */
+  background-size: cover;
+  opacity: 0.25; /* うっすらと重ねる（好みに合わせて調整可能） */
+  pointer-events: none; /* クリックを透過させる */
+  z-index: 1;
+}
+
+.social-feed-container iframe {
+  position: relative;
+  z-index: 0;
 }
 
 .social-links {

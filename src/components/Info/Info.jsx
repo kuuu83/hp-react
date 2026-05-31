@@ -40,7 +40,7 @@ function Info() {
             <div className="info-details" ref={detailsRef}>
               <dl>
                   <dt>住所</dt>
-                  <dd>〒243-0432 <br />神奈川県海老名市中央1-14-26 オアシス2</dd>
+                  <dd>〒243-0432 <br />神奈川県海老名市中央1-14-26 <span style={{ display: 'inline-block' }}>オアシス2</span></dd>
                   <dt>アクセス</dt>
                   <dd>JR・小田急・相鉄線海老名駅より徒歩5分</dd>
                   <dt>駐車場</dt>

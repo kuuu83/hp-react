@@ -13,20 +13,38 @@
 }
 
 .map-container {
-    width: 45%;
-    height: 400px; /* 固定高さを設定 */
+    width: 42%; /* 45%から42%に微調整 */
+    height: 380px; /* 400pxから380pxに少し短く */
     position: relative;
     overflow: hidden;
     border: 1px solid var(--primary-color);
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.02);
+    padding: 8px; 
+    background-color: #fdfaf2; 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); 
+    border-radius: 4px;
+}
+
+/* マップ用の和紙オーバーレイ */
+.map-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../../assets/washi.webp');
+    background-size: cover;
+    opacity: 0.2; /* 地図の文字が見えやすいよう、Instagram(0.25)より薄めに設定 */
+    pointer-events: none; /* 地図の操作を邪魔しない */
+    z-index: 1;
 }
 
 .map-container iframe {
     width: 100%;
     height: 100%;
     border: 0;
-    /* フィルターを削除してカラーに */
+    position: relative;
+    z-index: 0;
 }
 
 .info-details {
